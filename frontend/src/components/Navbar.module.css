@@ -17,7 +17,7 @@
   --dist-118: 7.375rem;
   --dist-160: 10rem;
   --dist-600: 37.5rem;
-  --color-blue: #136ef6;
+  --color-blue: #136EF6;
   --color-grey: #6d757d;
   --color-white: #ffffff;
   --color-purple: #7c7cf7;
@@ -28,13 +28,31 @@
   font-family: 'Onest', sans-serif;
 }
 
+.header-styles {
+  position: absolute;
+  width: 100%;
+  height: 256px;
+  left: 0;
+  top: 0;
+  z-index: 1000; /* если нужно, чтобы хедер был расположен поверх других элементов */
+}
+
 .lh4 {
   line-height: 1.625rem;
 }
-
 .navbarText {
-  font-size: var(--text-size-22);
-  font-weight: 600;
+  font-size: var(--text-size-18);
+  font-weight: 300;
+  color: #136EF6;
+  margin-top: 4px;
+}
+.navbarLogo {
+  height: var(--text-size-30);
+  
+}
+
+.header-styles {
+  justify-content: center;
 }
 
 .navLink {
@@ -42,7 +60,7 @@
   font-weight: 400;
 }
 
-.btnLight {
+.btnPrimary {
   --bs-btn-color: var(--color-grey);
   --bs-btn-hover-color: var(--color-blue);
   --bs-btn-bg: var(--color-white);
@@ -52,13 +70,30 @@
   --bs-btn-disabled-border-color: var(--color-grey);
   --bs-btn-disabled-color: var(--color-light-grey);
   --bs-btn-hover-border-color: var(--color-white);
+  --bs-btn-color: #136EF6;
+
+  height: var(--dist-35);
+  border-radius: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-size-16);
 }
 
-.btnPrimary {
+.btnLight {
   --bs-btn-bg: var(--color-blue);
   --bs-btn-border-color: var(--color-blue);
   --bs-btn-hover-bg: var(--color-purple);
   --bs-btn-hover-border-color: var(--color-purple);
   --bs-btn-disabled-bg: var(--color-grey);
   --bs-btn-disabled-border-color: var(--color-grey);
+  --bs-btn-color: #EBF1F9;
+  border-radius: 74px;
+
+  height: var(--dist-35);
+  border-radius: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-size-16);
 }

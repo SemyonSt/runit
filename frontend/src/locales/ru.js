@@ -102,7 +102,7 @@ const ruLocales = {
       about: 'О проекте',
       logout: 'Выйти',
       signIn: 'Войти',
-      signUp: 'Регистрация',
+      signUp: 'Зарегестрироваться',
       editor: 'Редактор',
     },
     footer: {

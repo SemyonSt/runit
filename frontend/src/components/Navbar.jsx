@@ -16,7 +16,7 @@ export function Navbar() {
   const { t } = useTranslation();
 
   return (
-    <header>
+    <header className="header-styles">
       <NavigationBar
         variant="dark"
         bg="dark"
@@ -33,23 +33,20 @@ export function Navbar() {
                 : routes.lendingPath()
             }
           >
-            <Image
-              alt={t('navbar.mainLabel')}
-              width={113}
-              height={24}
-              src={Logo}
-              aria-hidden="true"
-              className={`${classes.navbarLogo}`}
-            />{' '}
-            <span className={`${classes.navbarText} d-block ms-2 text-white`}>
-              {t('navbar.mainLabel')}
-            </span>
+            <Nav>
+              <Image
+                alt={t('navbar.mainLabel')}
+                src={Logo}
+                aria-hidden="true"
+                className={`${classes.navbarLogo}`}
+              />{' '}
+              <span className={`${classes.navbarText}`}>
+                {t('navbar.mainLabel')}
+              </span>
+            </Nav>
           </NavigationBar.Brand>
           <NavigationBar.Toggle as="button" aria-controls="navbar-toggler" />
-          <NavigationBar.Collapse
-            id="navbar-toggler"
-            className="justify-content-end"
-          >
+          <NavigationBar.Collapse id="navbar-toggler">
             <Nav as="ul">
               {auth.isLoggedIn && (
                 <Nav.Item as="li" className="d-flex align-items-center px-2">
@@ -62,7 +59,10 @@ export function Navbar() {
                   </Nav.Link>
                 </Nav.Item>
               )}
-              <Nav.Item as="li" className="d-flex align-items-center px-2">
+              <Nav.Item
+                as="li"
+                className="d-flex align-items-center justify-content-center"
+              >
                 <Nav.Link
                   as={Link}
                   to={routes.aboutPagePath()}
@@ -70,51 +70,74 @@ export function Navbar() {
                 >
                   {t('navbar.about')}
                 </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  to={routes.aboutPagePath()}
+                  className={`${classes.navLink}`}
+                >
+                  Приемущества
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  to={routes.aboutPagePath()}
+                  className={`${classes.navLink}`}
+                >
+                  Возможности
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  to={routes.aboutPagePath()}
+                  className={`${classes.navLink}`}
+                >
+                  FAQ
+                </Nav.Link>
               </Nav.Item>
-              {auth.isLoggedIn && (
-                <Nav.Item
-                  as="li"
-                  className="py-2 px-2 d-flex align-items-center"
-                >
-                  <Button
-                    variant="primary"
-                    className={`${classes.btnPrimary}`}
-                    onClick={auth.logOut}
+              <Nav className="justify-content-end">
+                {auth.isLoggedIn && (
+                  <Nav.Item
+                    as="li"
+                    className="py-2 px-2 d-flex align-items-center"
                   >
-                    {t('navbar.logout')}
-                  </Button>
-                </Nav.Item>
-              )}
-              {!auth.isLoggedIn && (
-                <Nav.Item
-                  as="li"
-                  className="py-2 px-2 d-flex align-items-center"
-                >
-                  <Button
-                    variant="light"
-                    as={Link}
-                    to={routes.loginPagePath()}
-                    className={`${classes.btnLight}`}
+                    <Button
+                      variant="primary"
+                      className={`${classes.btnPrimary}`}
+                      onClick={auth.logOut}
+                    >
+                      {t('navbar.logout')}
+                    </Button>
+                  </Nav.Item>
+                )}
+                {!auth.isLoggedIn && (
+                  <Nav.Item
+                    as="li"
+                    className="py-2 px-2 d-flex align-items-center"
                   >
-                    {t('navbar.signIn')}
-                  </Button>
-                </Nav.Item>
-              )}
-              {!auth.isLoggedIn && (
-                <Nav.Item
-                  as="li"
-                  className="py-2 px-2 d-flex align-items-center"
-                >
-                  <Button
-                    variant="primary"
-                    as={Link}
-                    to={routes.signUpPagePath()}
-                    className={`${classes.btnPrimary}`}
+                    <Button
+                      variant="light"
+                      as={Link}
+                      to={routes.loginPagePath()}
+                      className={`${classes.btnLight}`}
+                    >
+                      {t('navbar.signIn')}
+                    </Button>
+                  </Nav.Item>
+                )}
+                {!auth.isLoggedIn && (
+                  <Nav.Item
+                    as="li"
+                    className="py-2 px-2 d-flex align-items-center"
                   >
-                    {t('navbar.signUp')}
-                  </Button>
-                </Nav.Item>
-              )}
+                    <Button
+                      variant="primary"
+                      as={Link}
+                      to={routes.signUpPagePath()}
+                      className={`${classes.btnPrimary}`}
+                    >
+                      {t('navbar.signUp')}
+                    </Button>
+                  </Nav.Item>
+                )}
+              </Nav>
             </Nav>
           </NavigationBar.Collapse>
         </Container>
